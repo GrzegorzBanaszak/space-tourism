@@ -2,7 +2,7 @@
 
 ![Design preview for the Space tourism website coding challenge](./preview.jpg)
 
-##Use modules
+## Use modules
 
 - React
 - React-Router
