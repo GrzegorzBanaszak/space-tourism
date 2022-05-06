@@ -24,6 +24,7 @@ export const HomeContanier = styled.div`
     flex-direction: row;
     height: 100%;
     justify-content: space-evenly;
+    padding-top: 12rem;
   }
 `;
 
