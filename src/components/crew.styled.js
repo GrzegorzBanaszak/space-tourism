@@ -44,7 +44,7 @@ export const CrewImage = styled.div`
   img {
     margin: 0 auto;
     display: block;
-    max-width: 160px;
+    height: 200px;
   }
   @media (min-width: ${({ theme }) => theme.size.tablet}) {
     margin: 3rem auto;
@@ -68,8 +68,11 @@ export const CrewNavElement = styled.li`
   width: 0.7rem;
   height: 0.7rem;
   border-radius: 50%;
-  background-color: #979797;
+  background-color: ${({ isSelect }) =>
+    isSelect ? "white" : "rgba(255, 255, 255, 0.2);"};
+  cursor: pointer;
   &:hover {
+    background-color: rgba(255, 255, 255, 0.6);
   }
 `;
 

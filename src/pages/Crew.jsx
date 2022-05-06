@@ -17,8 +17,43 @@ import {
 } from "../components/crew.styled";
 import { useState } from "react";
 import data from "../data.json";
+import { useEffect } from "react";
 const Crew = () => {
+  const [personIndex, setPersonIndex] = useState(0);
   const [person, setPerson] = useState(data.crew[0]);
+
+  useEffect(() => {
+    const intervalId = setInterval(autoPersonChange, 5000);
+
+    return () => {
+      clearInterval(intervalId);
+    };
+  });
+
+  const autoPersonChange = () => {
+    if (personIndex === data.crew.length - 1) {
+      setPersonIndex(0);
+      setPerson(data.crew[0]);
+    } else {
+      setPersonIndex((prev) => prev + 1);
+      setPerson(data.crew[personIndex + 1]);
+    }
+  };
+
+  const isPersonSelect = (personName) => {
+    if (person.name === personName) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  const selectPerson = (personName) => {
+    const newPerson = data.crew.find((x) => x.name === personName);
+    if (!newPerson) return;
+    setPersonIndex(data.crew.indexOf(newPerson));
+    setPerson(newPerson);
+  };
   return (
     <CrewBg bg={bgMobile} bgTablet={bgTablet} bgDesktop={bgDesktop}>
       <CrewContainer>
@@ -30,10 +65,12 @@ const Crew = () => {
             <img src={require(`../assets/${person.images.png}`)} alt="person" />
           </CrewImage>
           <CrewNav>
-            <CrewNavElement></CrewNavElement>
-            <CrewNavElement></CrewNavElement>
-            <CrewNavElement></CrewNavElement>
-            <CrewNavElement></CrewNavElement>
+            {data.crew.map((item, index) => (
+              <CrewNavElement
+                isSelect={isPersonSelect(item.name)}
+                onClick={() => selectPerson(item.name)}
+              ></CrewNavElement>
+            ))}
           </CrewNav>
         </CrewTop>
         <CrewBottom>
