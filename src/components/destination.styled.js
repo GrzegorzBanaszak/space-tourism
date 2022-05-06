@@ -19,7 +19,7 @@ export const DestinationContainer = styled.div`
 `;
 
 export const DestinationHeader = styled.div`
-  padding-top: 8rem;
+  padding-top: 6rem;
   display: flex;
   justify-content: center;
   text-transform: uppercase;
