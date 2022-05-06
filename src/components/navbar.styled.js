@@ -40,18 +40,12 @@ export const NavMenu = styled.div`
     padding: 3rem 0;
     position: relative;
   }
+  a:hover {
+    border-bottom: 2px solid #ccc;
+  }
   @media (min-width: ${({ theme }) => theme.size.mobileL}) {
     display: flex;
     justify-content: space-around;
-    a:hover::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background-color: #ccc;
-    }
   }
   @media (min-width: ${({ theme }) => theme.size.laptop}) {
     position: relative;

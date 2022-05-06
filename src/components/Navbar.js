@@ -5,13 +5,14 @@ import {
   NavHamburger,
   NavLogo,
   NavMenu,
+  NavMenuLink,
   NavMobile,
   NavMobileContainer,
 } from "./navbar.styled";
 import logo from "../assets/shared/logo.svg";
 import openHamburger from "../assets/shared/icon-hamburger.svg";
 import closeHamburger from "../assets/shared/icon-close.svg";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,18 +24,38 @@ const Navbar = () => {
             <img src={logo} alt="logo" />
           </NavLogo>
           <NavMenu>
-            <Link to="/">
+            <NavLink
+              style={({ isActive }) => {
+                return { borderBottom: isActive ? "2px solid white" : "" };
+              }}
+              to="/"
+            >
               <b>00</b> Home
-            </Link>
-            <Link to="/destination">
+            </NavLink>
+            <NavLink
+              style={({ isActive }) => {
+                return { borderBottom: isActive ? "2px solid white" : "" };
+              }}
+              to="/destination"
+            >
               <b>01</b> Destination
-            </Link>
-            <Link to="/crew">
+            </NavLink>
+            <NavLink
+              style={({ isActive }) => {
+                return { borderBottom: isActive ? "2px solid white" : "" };
+              }}
+              to="/crew"
+            >
               <b>02</b> Crew
-            </Link>
-            <Link to="/technology">
+            </NavLink>
+            <NavLink
+              style={({ isActive }) => {
+                return { borderBottom: isActive ? "2px solid white" : "" };
+              }}
+              to="/technology"
+            >
               <b>03</b> Technology
-            </Link>
+            </NavLink>
           </NavMenu>
           <NavHamburger onClick={() => setIsOpen((prev) => !prev)}>
             <img
