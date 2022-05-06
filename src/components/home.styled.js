@@ -68,7 +68,6 @@ export const HomeSubtitle = styled.div`
 export const HomeButtonContainer = styled.div`
   margin-top: 5rem;
   position: relative;
-
   &::before {
     content: "";
     display: block;
@@ -94,8 +93,6 @@ export const HomeButton = styled.button`
   height: 10rem;
   border-radius: 50%;
   border: none;
-  z-index: 1;
-
   font-size: 1.4rem;
   text-transform: uppercase;
   background-color: white;

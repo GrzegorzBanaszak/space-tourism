@@ -21,7 +21,7 @@ export const NavLogo = styled.div`
 `;
 
 export const NavHamburger = styled.div`
-  z-index: 2;
+  z-index: 3;
   padding: 1rem;
   cursor: pointer;
   @media (min-width: ${({ theme }) => theme.size.mobileL}) {
@@ -72,10 +72,12 @@ export const NavMenu = styled.div`
 export const NavMobile = styled.div`
   display: ${({ isOpen }) => (isOpen ? "block" : "none")};
   position: absolute;
-  background: #97979744;
+  background-color: #0b0d1799;
+  backdrop-filter: blur(5px);
   top: 0;
   right: 0;
   height: 100%;
+  z-index: 2;
   width: 60%;
   @media (min-width: ${({ theme }) => theme.size.mobileL}) {
     display: none;
