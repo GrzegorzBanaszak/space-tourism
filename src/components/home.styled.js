@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const HomeBg = styled.section`
   background-image: url(${({ bg }) => bg});
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -19,6 +19,7 @@ export const HomeContanier = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 0 2rem;
+  padding-bottom: 3rem;
   @media (min-width: ${({ theme }) => theme.size.laptop}) {
     flex-direction: row;
     height: 100%;
