@@ -31,13 +31,34 @@ export const CrewHeader = styled.div`
     padding-top: 10rem;
     justify-content: start;
   }
-  @media (min-width: ${({ theme }) => theme.size.laptop}) {
+  @media (min-width: ${({ theme }) => theme.size.tablet}) {
     font-size: 1.3rem;
     padding-top: 12rem;
   }
 `;
 
-export const CrewTop = styled.div``;
+export const CrewContent = styled.div`
+  @media (min-width: ${({ theme }) => theme.size.tablet}) {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  @media (min-width: ${({ theme }) => theme.size.laptop}) {
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    height: calc(100vh - 13.5rem);
+  }
+`;
+
+export const CrewTop = styled.div`
+  @media (min-width: ${({ theme }) => theme.size.tablet}) {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  @media (min-width: ${({ theme }) => theme.size.laptop}) {
+    width: 50%;
+    position: relative;
+  }
+`;
 export const CrewImage = styled.div`
   border-bottom: 2px solid #97979744;
   margin-top: 2rem;
@@ -45,15 +66,21 @@ export const CrewImage = styled.div`
     margin: 0 auto;
     display: block;
     height: 200px;
+    @media (min-width: ${({ theme }) => theme.size.tablet}) {
+      height: 45vh;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    @media (min-width: ${({ theme }) => theme.size.laptop}) {
+      height: calc(100vh - 16rem);
+      /* position: relative; */
+      margin-top: 0;
+    }
   }
   @media (min-width: ${({ theme }) => theme.size.tablet}) {
-    margin: 3rem auto;
-  }
-
-  @media (min-width: ${({ theme }) => theme.size.laptop}) {
-    img {
-      max-width: 1200px;
-    }
+    border-bottom: none;
   }
 `;
 
@@ -63,6 +90,21 @@ export const CrewNav = styled.ul`
   display: flex;
   justify-content: center;
   gap: 1rem;
+  @media (min-width: ${({ theme }) => theme.size.laptop}) {
+    display: none;
+  }
+`;
+
+export const CrewNavDesktop = styled.ul`
+  list-style-type: none;
+  margin-top: 1.3rem;
+  display: none;
+  justify-content: center;
+  gap: 1rem;
+  @media (min-width: ${({ theme }) => theme.size.laptop}) {
+    margin-top: 6rem;
+    display: flex;
+  }
 `;
 export const CrewNavElement = styled.li`
   width: 0.7rem;
@@ -81,16 +123,27 @@ export const CrewBottom = styled.article`
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media (min-width: ${({ theme }) => theme.size.laptop}) {
+    width: 50%;
+    align-items: start;
+    margin-top: 5rem;
+  }
 `;
 export const CrewRole = styled.h5`
   color: #979797;
   text-transform: uppercase;
   margin: 0.5rem 0;
+  @media (min-width: ${({ theme }) => theme.size.laptop}) {
+    font-size: 2rem;
+  }
 `;
 export const CrewName = styled.h4`
   text-transform: uppercase;
   margin: 0.5rem 0;
   font-size: 1.4rem;
+  @media (min-width: ${({ theme }) => theme.size.laptop}) {
+    font-size: 4.2rem;
+  }
 `;
 export const CrewBio = styled.p`
   color: #d0d6f9;
@@ -98,4 +151,11 @@ export const CrewBio = styled.p`
   margin-top: 1rem;
   font-size: 1.1rem;
   line-height: 1.3rem;
+  @media (min-width: ${({ theme }) => theme.size.laptop}) {
+    width: 80%;
+    line-height: 2rem;
+    text-align: left;
+    font-size: 1.5rem;
+    min-height: 160px;
+  }
 `;

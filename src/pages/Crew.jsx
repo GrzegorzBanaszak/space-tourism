@@ -7,10 +7,12 @@ import {
   CrewBio,
   CrewBottom,
   CrewContainer,
+  CrewContent,
   CrewHeader,
   CrewImage,
   CrewName,
   CrewNav,
+  CrewNavDesktop,
   CrewNavElement,
   CrewRole,
   CrewTop,
@@ -24,7 +26,6 @@ const Crew = () => {
 
   useEffect(() => {
     const intervalId = setInterval(autoPersonChange, 5000);
-
     return () => {
       clearInterval(intervalId);
     };
@@ -60,24 +61,37 @@ const Crew = () => {
         <CrewHeader>
           <p>02</p>Meet your Crew
         </CrewHeader>
-        <CrewTop>
-          <CrewImage>
-            <img src={require(`../assets/${person.images.png}`)} alt="person" />
-          </CrewImage>
-          <CrewNav>
-            {data.crew.map((item, index) => (
-              <CrewNavElement
-                isSelect={isPersonSelect(item.name)}
-                onClick={() => selectPerson(item.name)}
-              ></CrewNavElement>
-            ))}
-          </CrewNav>
-        </CrewTop>
-        <CrewBottom>
-          <CrewRole>{person.role}</CrewRole>
-          <CrewName>{person.name}</CrewName>
-          <CrewBio>{person.bio}</CrewBio>
-        </CrewBottom>
+        <CrewContent>
+          <CrewTop>
+            <CrewImage>
+              <img
+                src={require(`../assets/${person.images.png}`)}
+                alt="person"
+              />
+            </CrewImage>
+            <CrewNav>
+              {data.crew.map((item, index) => (
+                <CrewNavElement
+                  isSelect={isPersonSelect(item.name)}
+                  onClick={() => selectPerson(item.name)}
+                ></CrewNavElement>
+              ))}
+            </CrewNav>
+          </CrewTop>
+          <CrewBottom>
+            <CrewRole>{person.role}</CrewRole>
+            <CrewName>{person.name}</CrewName>
+            <CrewBio>{person.bio}</CrewBio>
+            <CrewNavDesktop>
+              {data.crew.map((item, index) => (
+                <CrewNavElement
+                  isSelect={isPersonSelect(item.name)}
+                  onClick={() => selectPerson(item.name)}
+                ></CrewNavElement>
+              ))}
+            </CrewNavDesktop>
+          </CrewBottom>
+        </CrewContent>
       </CrewContainer>
     </CrewBg>
   );
