@@ -24,7 +24,7 @@ export const NavHamburger = styled.div`
   z-index: 3;
   padding: 1rem;
   cursor: pointer;
-  @media (min-width: ${({ theme }) => theme.size.mobileL}) {
+  @media (min-width: ${({ theme }) => theme.size.tablet}) {
     display: none;
   }
 `;
@@ -43,7 +43,7 @@ export const NavMenu = styled.div`
   a:hover {
     border-bottom: 2px solid #ccc;
   }
-  @media (min-width: ${({ theme }) => theme.size.mobileL}) {
+  @media (min-width: ${({ theme }) => theme.size.tablet}) {
     display: flex;
     justify-content: space-around;
   }
@@ -73,7 +73,7 @@ export const NavMobile = styled.div`
   height: 100%;
   z-index: 2;
   width: 60%;
-  @media (min-width: ${({ theme }) => theme.size.mobileL}) {
+  @media (min-width: ${({ theme }) => theme.size.tablet}) {
     display: none;
   }
 `;
