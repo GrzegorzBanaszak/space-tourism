@@ -64,9 +64,15 @@ export const TechnologySelect = styled.li`
   height: 3rem;
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.5);
+  background-color: ${({ isActive }) => (isActive ? "white" : "")};
+  color: ${({ isActive }) => (isActive ? "#0b0d17" : "white")};
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.7);
+  }
 `;
 
 export const TechnologyTitle = styled.h5`
