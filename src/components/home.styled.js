@@ -32,7 +32,7 @@ export const HomeTop = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 11rem;
+  margin-top: 7rem;
   @media (min-width: ${({ theme }) => theme.size.laptop}) {
     max-width: 30%;
     align-items: start;
