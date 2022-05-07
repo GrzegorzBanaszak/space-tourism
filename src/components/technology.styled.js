@@ -39,17 +39,26 @@ export const TechnologyContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 2rem;
+  @media (min-width: ${({ theme }) => theme.size.laptop}) {
+    flex-direction: row-reverse;
+  }
 `;
 
 export const TechnologyImage = styled.img`
   width: 100vw;
   display: block;
+  @media (min-width: ${({ theme }) => theme.size.laptop}) {
+    width: auto;
+  }
 `;
 
 export const TechnologyContent = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 10vw;
+  @media (min-width: ${({ theme }) => theme.size.laptop}) {
+    flex-direction: row;
+  }
 `;
 
 export const TechnologySelectContainer = styled.ul`
@@ -57,6 +66,10 @@ export const TechnologySelectContainer = styled.ul`
   display: flex;
   justify-content: center;
   gap: 1.2rem;
+  @media (min-width: ${({ theme }) => theme.size.laptop}) {
+    flex-direction: column;
+    padding: 0 2rem;
+  }
 `;
 
 export const TechnologySelect = styled.li`
@@ -73,21 +86,44 @@ export const TechnologySelect = styled.li`
   &:hover {
     border-color: rgba(255, 255, 255, 0.7);
   }
+  @media (min-width: ${({ theme }) => theme.size.laptop}) {
+    width: 5rem;
+    height: 5rem;
+  }
+`;
+
+export const TechnologyArticle = styled.article`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media (min-width: ${({ theme }) => theme.size.laptop}) {
+    justify-content: center;
+    align-items: start;
+  }
 `;
 
 export const TechnologyTitle = styled.h5`
-  text-align: center;
   text-transform: uppercase;
   color: ${({ theme }) => theme.colors.pinkWhite};
+  @media (min-width: ${({ theme }) => theme.size.laptop}) {
+    text-align: left;
+  }
 `;
 export const TechnologyName = styled.h4`
-  text-align: center;
   font-size: 2rem;
   text-transform: uppercase;
   margin: 1rem 0;
+  @media (min-width: ${({ theme }) => theme.size.laptop}) {
+    text-align: left;
+    font-size: 3rem;
+  }
 `;
 export const TechnologyDescription = styled.p`
   color: ${({ theme }) => theme.colors.pinkWhite};
   line-height: 1.7rem;
   text-align: center;
+  @media (min-width: ${({ theme }) => theme.size.laptop}) {
+    text-align: left;
+    width: 70%;
+  }
 `;

@@ -3,6 +3,7 @@ import bgMobile from "../assets/technology/background-technology-mobile.jpg";
 import bgTablet from "../assets/technology/background-technology-tablet.jpg";
 import bgDesktop from "../assets/technology/background-technology-desktop.jpg";
 import {
+  TechnologyArticle,
   TechnologyBg,
   TechnologyContainer,
   TechnologyContent,
@@ -16,10 +17,23 @@ import {
 } from "../components/technology.styled";
 import data from "../data.json";
 import { useState } from "react";
+import { useEffect } from "react";
 
 const Technology = () => {
   const [technology, setTechnology] = useState(data.technology[0]);
+  const [width, setWidth] = useState(window.innerWidth);
 
+  const getWindowWidth = () => {
+    setWidth(window.innerWidth);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", getWindowWidth);
+
+    return () => {
+      window.removeEventListener("resize", getWindowWidth);
+    };
+  }, []);
   const changeTechnology = (technologyName) => {
     const newTechnology = data.technology.find(
       (x) => x.name === technologyName
@@ -45,7 +59,11 @@ const Technology = () => {
       </TechnologyHeader>
       <TechnologyContainer>
         <TechnologyImage
-          src={require(`../assets/${technology.images.landscape}`)}
+          src={
+            width > 1024
+              ? require(`../assets/${technology.images.portrait}`)
+              : require(`../assets/${technology.images.landscape}`)
+          }
           alt="technology image"
         />
         <TechnologyContent>
@@ -60,11 +78,13 @@ const Technology = () => {
               </TechnologySelect>
             ))}
           </TechnologySelectContainer>
-          <TechnologyTitle>The Terminology...</TechnologyTitle>
-          <TechnologyName>{technology.name}</TechnologyName>
-          <TechnologyDescription>
-            {technology.description}
-          </TechnologyDescription>
+          <TechnologyArticle>
+            <TechnologyTitle>The Terminology...</TechnologyTitle>
+            <TechnologyName>{technology.name}</TechnologyName>
+            <TechnologyDescription>
+              {technology.description}
+            </TechnologyDescription>
+          </TechnologyArticle>
         </TechnologyContent>
       </TechnologyContainer>
     </TechnologyBg>
