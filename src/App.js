@@ -10,7 +10,7 @@ import { ThemeProvider } from "styled-components";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <ThemeProvider theme={theme}>
         <Routes>
           <Route path="/" element={<Layout />}>
